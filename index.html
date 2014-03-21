@@ -1,0 +1,21 @@
+---
+layout: default
+title: Clark Fischer
+---
+<ul class="list-unstyled">
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url }}">
+        <h3>
+          {{ post.title }}
+          <small>
+            &laquo;
+            {{ post.date | date_to_string }}
+          </small>
+        </h3>
+      </a>
+      {{ post.content | split: '<!-- more -->' | first }}
+      <hr />
+    </li>
+  {% endfor %}
+</ul>
