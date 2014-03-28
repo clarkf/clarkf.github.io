@@ -1,0 +1,47 @@
+digraph instance {
+    // wrong
+    subgraph clusterwrong {
+
+      app -> localdb [label="data"]
+      app -> rootfs [label="files"]
+
+      app [label="App Server"]
+      rootfs [label="RootFS"]
+      localdb [label="mysqld"]
+
+      label = "Instance";
+      color = red;
+    }
+
+    // right
+    subgraph correct {
+      subgraph clusterapp {
+         app1 [label="App Server"]
+
+         label = "Instance"
+         color = green;
+      }
+
+      app1 -> db1 [label="data"]
+      app1 -> s3 [label="files"]
+
+      db1 [shape=trapezium, label="RDS"]
+      s3 [shape=trapezium, label="S3"]
+    }
+
+    // right 2
+    subgraph correct {
+      subgraph clusterapp2 {
+         app2 [label="App Server"]
+
+         label = "Instance"
+         color = green;
+      }
+
+      app2 -> db3 [label="data"]
+      app2 -> ebs [label="files"]
+
+      db3 [shape=trapezium, label="DB"]
+      ebs [shape=trapezium, label="EBS"]
+    }
+}

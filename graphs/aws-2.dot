@@ -1,0 +1,7 @@
+digraph AWS {
+    graph [size=1]
+
+    AMI -> instance
+
+    AMI [shape=diamond]
+}

@@ -1,0 +1,14 @@
+digraph AWS {
+    graph [rankdir=LR, size=2]
+
+    EIP -> instance2
+    EIP -> instance1 [style=dashed]
+
+    AMI -> instance1
+    AMI -> instance2
+
+    instance1 [label="Instance"]
+    instance2 [label="New Instance"]
+
+    AMI [shape=diamond]
+}
