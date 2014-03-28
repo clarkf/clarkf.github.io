@@ -10,7 +10,9 @@ title: Clark Fischer
           {{ post.title }}
           <small>
             &laquo;
-            {{ post.date | date_to_string }}
+            <time datetime="{{ post.date | date: "%Y-%m-%dT%H:%M:%S-08:00" }}">
+              {{ post.date | date_to_string }}
+            </time>
           </small>
         </h3>
       </a>
@@ -19,3 +21,10 @@ title: Clark Fischer
     </li>
   {% endfor %}
 </ul>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery-timeago/1.4.0/jquery.timeago.min.js"></script>
+<script>
+  jQuery(function ($) {
+    $('time').timeago();
+  });
+</script>
